@@ -8,6 +8,7 @@ from src.exception import CustomException
 import dill
 
 from sklearn.metrics import r2_score
+from sklearn.model_selection import GridSearchCV
 
 def save_object(file_path, obj):
     try : 
@@ -20,7 +21,7 @@ def save_object(file_path, obj):
     except Exception as e:
         raise CustomException(e, sys)
 
-def evaluate_model(xtrain, ytrain, xtest, ytest, models):
+def evaluate_model(xtrain, ytrain, xtest, ytest, models, parameters):
     ''' 
     This function is used to evaluate all train all the models and 
          return their r2 score. 
@@ -37,7 +38,12 @@ def evaluate_model(xtrain, ytrain, xtest, ytest, models):
 
         for key in models:
             model = models[key]
+            param = parameters[key]
 
+            grid_search = GridSearchCV(model, param, cv=3)
+            grid_search.fit(xtrain, ytrain)
+
+            model.set_params(**grid_search.best_params_)
             model.fit(xtrain, ytrain)
 
             ypredicted_test = model.predict(xtest)
