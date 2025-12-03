@@ -22,6 +22,10 @@ from src.utils import save_object
  '''
 @dataclass
 class DataTransformationConfig:
+    '''
+    This class makes the file object and stores it at the location 
+                  artifact/preprocessor.pkl
+    '''
     preprocessor_obj_file_path = os.path.join('artifact', 'preprocessor.pkl')
 
 class DataTransformation:
@@ -30,6 +34,10 @@ class DataTransformation:
 
     # main idea here is to create all the pickle files, like converting numerical into categorical, etc.
     def get_data_transformer_object(self):
+        '''
+            This method builds and returns a columntransformer that knows how to preprocess both numeric
+            and categorical columns.
+        '''
         try:
             numcols = ['writing_score', 'reading_score']
             catcols = [
@@ -109,6 +117,9 @@ class DataTransformation:
 
             logging.info(f"Saved preprocessing object.")
 
+            # These saves the preprocessing object in the desired location. Note we store the preprocessing 
+            # object not the preprocessed data. This is important because our pipeline function, which is 
+            # used to fit models, requires preprocesed object.
             save_object(
 
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
