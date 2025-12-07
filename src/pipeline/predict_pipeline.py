@@ -1,4 +1,7 @@
 # We spcififcly use this file to develop a pipeline to predict on new data. 
+# This file will contain the functions related to it as well. So, if on our webpage we get 
+# new data, the functions on this pages will used to handle the new incoming data. 
+
 
 import sys
 import pandas as pd
@@ -23,6 +26,7 @@ class PredictPipeline:
             pred = model.predict(data_scaled)
 
             return pred
+        
         except Exception as e:
             raise CustomException(e, sys)
 
