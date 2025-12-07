@@ -11,10 +11,11 @@ debugpy==1.8.17
 decorator==5.2.1
 dill==0.4.0
 executing==2.2.1
--e git+ssh://git@github.com/Sohampande/First-ml-project.git@ae1a4eea4dcf6680e4727ff2f1ce78dbdb5cab3a#egg=First_ml_project
+-e git+ssh://git@github.com/Sohampande/First-ml-project.git@f09b6f8b0982f082c28c806a05933b2759e59f79#egg=First_ml_project
 Flask==3.0.3
 fonttools==4.57.0
 graphviz==0.20.3
+gunicorn==23.0.0
 importlib_metadata==8.5.0
 importlib_resources==6.4.5
 ipykernel==6.29.5
