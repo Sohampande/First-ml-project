@@ -1,0 +1,8 @@
+venv/
+notebook/
+logs/
+artifact/
+catboost_info/
+__pycache__/
+*.ipynb
+Data/
