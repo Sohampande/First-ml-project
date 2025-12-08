@@ -26,28 +26,7 @@ Training artifacts saved for reproducibility
 Easily deployable (AWS Elastic Beanstalk or Azure App Service — optional for future work)
 
 📂 Project Structure
-First-ml-project/
-│
-├── application.py                 # Flask application entry point
-├── requirements.txt               # All Python dependencies
-├── setup.py                       # For packaging the project
-├── README.md                      # Project documentation
-│
-├── src/                           # Main ML package
-│   ├── components/                # Data ingestion, transformation, model trainer
-│   ├── pipeline/                  # Training + prediction pipelines
-│   ├── utils.py                   # Utility functions
-│   ├── logger.py                  # Logging helper
-│   ├── exception.py               # Custom exception class
-│   └── __init__.py
-│
-├── templates/                     # HTML templates for the Flask app
-│
-├── artifact/                      # Trained model & preprocessing objects
-│
-├── logs/                          # Auto-generated logs
-│
-└── .ebextensions/ (optional)      # Deployment config (AWS Elastic Beanstalk)
+the project structure is available above. Have a look !
 
 ## How the Model Works
 
@@ -74,12 +53,12 @@ After preprocessing and feature engineering, the model predicts a math score.
 git clone https://github.com/<your-username>/First-ml-project.git
 cd First-ml-project
 
-2️2. Create a virtual environment
+2. Create a virtual environment
 python -m venv venv
 source venv/bin/activate     # Mac/Linux
 venv\Scripts\activate        # Windows
 
-3️3. Install dependencies
+3. Install dependencies
 pip install -r requirements.txt
 
 4. Running the Web Application Locally
